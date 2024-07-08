@@ -13,29 +13,28 @@ RELEASE="$(rpm -E %fedora)"
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # this installs a package from fedora repos
-rpm-ostree install \
-    --idempotent \
+rpm-ostree install -y --idempotent '
     # run any os in containers easily 
-    distrobox \
+    distrobox
     # Better "top" 
-    htop \
-    ffmpeg \
-    kdepim-addons \ # For the Event Calendar widget, to work with external calendars 
-    kde-connect \
-    kdeconnectd \
-    kontact \ # Calendar + Contact + Task manager. If installed via Flatpak, it will not work with Event  Calendar.
-    libvirt \ # Run VMs 
-    mono-complete \ # KeePass 
-    mozilla-openh264 \ # Video support on Firefox 
-    podman-compose \ # Use docker.compose.yml files with podman 
-    plasma-workspace-x11 \ # Fedora decided to remove X11, so I have to add it back 
-    usbguard \ # Protect against unknown USB devices 
-    rpmfusion-free-release \
-    rpmfusion-nonfree-release \
-    virt-manager \ # Run VMs 
-    xbindkeys \ # Shortcuts 
-    xdotool \ # KeePass 
-    xinput \ # KeePass
+    htop
+    ffmpeg
+    kdepim-addons # For the Event Calendar widget, to work with external calendars 
+    kde-connect
+    kdeconnectd
+    kontact # Calendar + Contact + Task manager. If installed via Flatpak, it will not work with Event  Calendar.
+    libvirt # Run VMs 
+    mono-complete # KeePass 
+    mozilla-openh264 # Video support on Firefox 
+    podman-compose # Use docker.compose.yml files with podman 
+    plasma-workspace-x11 # Fedora decided to remove X11, so I have to add it back 
+    usbguard # Protect against unknown USB devices 
+    rpmfusion-free-release
+    rpmfusion-nonfree-release
+    virt-manager # Run VMs 
+    xbindkeys # Shortcuts 
+    xdotool # KeePass 
+    xinput # KeePass'
 
 # --add-repo=https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo \
 rpm-ostree install \
