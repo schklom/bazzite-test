@@ -13,7 +13,8 @@ RELEASE="$(rpm -E %fedora)"
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # this installs a package from fedora repos
-rpm-ostree install -y --idempotent distrobox htop ffmpeg kdepim-addons kde-connect kdeconnectd kontact libvirt mono-complete mozilla-openh264 podman-compose plasma-workspace-x11 usbguard rpmfusion-free-release rpmfusion-nonfree-release virt-manager xbindkeys xdotool xinput
+rpm-ostree override remove noopenh264 --install mozilla-openh264
+rpm-ostree install -y --idempotent distrobox htop ffmpeg kdepim-addons kde-connect kdeconnectd kontact libvirt mono-complete podman-compose plasma-workspace-x11 usbguard rpmfusion-free-release rpmfusion-nonfree-release virt-manager xbindkeys xdotool xinput
 
 rpm-ostree uninstall firefox noopenh264
 
