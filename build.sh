@@ -14,6 +14,7 @@ RELEASE="$(rpm -E %fedora)"
 
 # this installs a package from fedora repos
 rpm-ostree install \
+    --idempotent \
     # run any os in containers easily 
     distrobox \
     # Better "top" 
@@ -37,7 +38,9 @@ rpm-ostree install \
     xinput \ # KeePass
 
 # --add-repo=https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo \
-rpm-ostree install igt-gpu-tools \ # To check GPU usage via sudo intel_gpu_top
+rpm-ostree install \
+    --idempotent \
+    igt-gpu-tools \ # To check GPU usage via sudo intel_gpu_top
     intel-media-driver # Hardware acceleration with Intel (c.f. https://wiki.archlinux.org/title/Hardware_video_acceleration)
 
 rpm-ostree uninstall \
