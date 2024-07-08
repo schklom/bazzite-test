@@ -13,38 +13,12 @@ RELEASE="$(rpm -E %fedora)"
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # this installs a package from fedora repos
-rpm-ostree install -y --idempotent '
-    # run any os in containers easily 
-    distrobox
-    # Better "top" 
-    htop
-    ffmpeg
-    kdepim-addons # For the Event Calendar widget, to work with external calendars 
-    kde-connect
-    kdeconnectd
-    kontact # Calendar + Contact + Task manager. If installed via Flatpak, it will not work with Event  Calendar.
-    libvirt # Run VMs 
-    mono-complete # KeePass 
-    mozilla-openh264 # Video support on Firefox 
-    podman-compose # Use docker.compose.yml files with podman 
-    plasma-workspace-x11 # Fedora decided to remove X11, so I have to add it back 
-    usbguard # Protect against unknown USB devices 
-    rpmfusion-free-release
-    rpmfusion-nonfree-release
-    virt-manager # Run VMs 
-    xbindkeys # Shortcuts 
-    xdotool # KeePass 
-    xinput # KeePass'
+rpm-ostree install -y --idempotent distrobox htop ffmpeg kdepim-addons kde-connect kdeconnectd kontact libvirt mono-complete mozilla-openh264 podman-compose plasma-workspace-x11 usbguard rpmfusion-free-release rpmfusion-nonfree-release virt-manager xbindkeys xdotool xinput
 
 # --add-repo=https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo \
-rpm-ostree install \
-    --idempotent \
-    igt-gpu-tools \ # To check GPU usage via sudo intel_gpu_top
-    intel-media-driver # Hardware acceleration with Intel (c.f. https://wiki.archlinux.org/title/Hardware_video_acceleration)
+rpm-ostree install --idempotent igt-gpu-tools intel-media-driver
 
-rpm-ostree uninstall \
-    firefox \
-    noopenh264
+rpm-ostree uninstall firefox noopenh264
 
 flatpak install -y \
     \ # Browsers
