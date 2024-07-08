@@ -18,7 +18,7 @@ rpm-ostree install -y --idempotent distrobox htop ffmpeg kdepim-addons kde-conne
 # --add-repo=https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo \
 rpm-ostree install --idempotent igt-gpu-tools intel-media-driver
 
-rpm-ostree uninstall firefox noopenh264
+rpm-ostree uninstall firefox
 
 flatpak install -y \
     \ # Browsers
