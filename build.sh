@@ -15,10 +15,10 @@ RELEASE="$(rpm -E %fedora)"
 # this installs a package from fedora repos
 rpm-ostree install -y --idempotent distrobox htop ffmpeg kdepim-addons kde-connect kdeconnectd kontact libvirt mono-complete mozilla-openh264 podman-compose plasma-workspace-x11 usbguard rpmfusion-free-release rpmfusion-nonfree-release virt-manager xbindkeys xdotool xinput
 
+rpm-ostree uninstall firefox noopenh264
+
 # --add-repo=https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo \
 rpm-ostree install --idempotent igt-gpu-tools intel-media-driver
-
-rpm-ostree uninstall firefox
 
 flatpak install -y \
     \ # Browsers
