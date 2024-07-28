@@ -17,71 +17,93 @@ rpm-ostree \
     override remove noopenh264 \
     --install mozilla-openh264
 
-rpm-ostree \
-    install -y --idempotent \
+rpm-ostree install -y --idempotent \
     distrobox \
-    htop ffmpeg kdepim-addons kde-connect kdeconnectd kontact libvirt mono-complete podman-compose plasma-workspace-x11 usbguard rpmfusion-free-release rpmfusion-nonfree-release virt-manager xbindkeys xdotool xinput
+    htop \
+    ffmpeg \
+    kdepim-addons \
+    kde-connect \
+    kdeconnectd \
+    kontact \
+    libvirt \
+    mono-complete \
+    podman-compose \
+    plasma-workspace-x11 \
+    usbguard \
+    rpmfusion-free-release \
+    rpmfusion-nonfree-release \
+    virt-manager \
+    xbindkeys \
+    xdotool \
+    xinput
 
 # --add-repo=https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo \
-rpm-ostree install --idempotent igt-gpu-tools intel-media-driver
+rpm-ostree install -y --idempotent \
+    igt-gpu-tools \
+    intel-media-driver
 
+# Browsers
 flatpak install -y \
-    # Browsers
     org.mozilla.firefox \
     io.github.ungoogled_software.ungoogled_chromium \
-    org.torproject.torbrowser-launcher \
-    \
-    \ # Media
+    org.torproject.torbrowser-launcher
+
+# Media
+flatpak install -y \
     org.libreoffice.LibreOffice \
     org.kde.okular \
     org.kde.kwrite \
     org.videolan.VLC \
     com.stremio.Stremio \
-    \ # com.obsproject.Studio
     com.github.iwalton3.jellyfin-media-player \
     org.gnome.Shotwell \
     org.kde.gwenview \
     tv.kodi.Kodi \
-    \ # org.clementine_player.Clementine
-    net.sapples.LiveCaptions \
-    \ # com.github.marinm.songrec
-    \
-    \ # Network
+    net.sapples.LiveCaptions
+    # com.github.marinm.songrec
+    # org.clementine_player.Clementine
+    # com.obsproject.Studio
+
+# Network
+flatpak install -y \
     com.protonvpn.www \
     org.jdownloader.JDownloader \
     org.kde.ktorrent \
-    org.kde.krdc \
-    \
-    \ # Social
+    org.kde.krdc
+
+# Social
+flatpak install -y \
     org.mozilla.Thunderbird \
-    \ # eu.betterbird.Betterbird
     com.skype.Client \
     com.github.IsmaelMartinez.teams_for_linux \
     org.signal.Signal \
     io.github.mahmoudbahaa.outlook_for_linux \
     com.slack.Slack \
     com.discordapp.Discord \
-    us.zoom.Zoom \
-    \
-    \ # Developer tools
+    us.zoom.Zoom
+    # eu.betterbird.Betterbird
+
+# Developer tools
+flatpak install -y
     com.vscodium.codium \
     org.fedoraproject.MediaWriter \
-    org.kde.isoimagewriter \
-    \ # com.github.tchx84.Flatseal
-    \
-    \ # Others
+    org.kde.isoimagewriter
+    # com.github.tchx84.Flatseal
+
+# Others
+flatpak install -y
     com.valvesoftware.Steam \
     net.lutris.Lutris \
     com.usebottles.bottles \
     com.dropbox.Client \
     org.zotero.Zotero \
-    \ # org.gnome.OCRFeeder
     org.gnome.Calculator \
     io.github.prateekmedia.appimagepool \
     dev.lasheen.qr \
     org.kde.krename \
     xyz.xclicker.xclicker \
     com.nextcloud.desktopclient.nextcloud
+     # org.gnome.OCRFeeder
 
 mkdir -p /etc/systemd/journald.conf.d/
 echo 'SystemMaxUse=400M' > /etc/systemd/journald.conf.d/max_size.conf
