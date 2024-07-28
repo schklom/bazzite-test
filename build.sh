@@ -43,12 +43,12 @@ rpm-ostree install -y --idempotent \
     intel-media-driver
 
 # Browsers
-flatpak install -y org.mozilla.firefox
-flatpak install -y io.github.ungoogled_software.ungoogled_chromium
-flatpak install -y org.torproject.torbrowser-launcher
+flatpak install flathub -y --noninteractive org.mozilla.firefox
+flatpak install -y --noninteractive io.github.ungoogled_software.ungoogled_chromium
+flatpak install -y --noninteractive org.torproject.torbrowser-launcher
 
 # Media
-flatpak install -y \
+flatpak install -y --noninteractive \
     org.libreoffice.LibreOffice \
     org.kde.okular \
     org.kde.kwrite \
@@ -64,14 +64,14 @@ flatpak install -y \
     # com.obsproject.Studio
 
 # Network
-flatpak install -y \
+flatpak install -y --noninteractive \
     com.protonvpn.www \
     org.jdownloader.JDownloader \
     org.kde.ktorrent \
     org.kde.krdc
 
 # Social
-flatpak install -y \
+flatpak install -y --noninteractive \
     org.mozilla.Thunderbird \
     com.skype.Client \
     com.github.IsmaelMartinez.teams_for_linux \
@@ -83,14 +83,14 @@ flatpak install -y \
     # eu.betterbird.Betterbird
 
 # Developer tools
-flatpak install -y
+flatpak install -y --noninteractive
     com.vscodium.codium \
     org.fedoraproject.MediaWriter \
     org.kde.isoimagewriter
     # com.github.tchx84.Flatseal
 
 # Others
-flatpak install -y
+flatpak install -y --noninteractive
     com.valvesoftware.Steam \
     net.lutris.Lutris \
     com.usebottles.bottles \
