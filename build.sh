@@ -43,7 +43,7 @@ rpm-ostree install -y --idempotent \
     intel-media-driver
 
 # Browsers
-# flatpak install flathub -y --noninteractive org.mozilla.firefox
+flatpak install -y --noninteractive org.mozilla.firefox
 flatpak install -y --noninteractive io.github.ungoogled_software.ungoogled_chromium
 flatpak install -y --noninteractive org.torproject.torbrowser-launcher
 
