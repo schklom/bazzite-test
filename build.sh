@@ -16,8 +16,6 @@ RELEASE="$(rpm -E %fedora)"
 rpm-ostree override remove noopenh264 --install mozilla-openh264
 rpm-ostree install -y --idempotent distrobox htop ffmpeg kdepim-addons kde-connect kdeconnectd kontact libvirt mono-complete podman-compose plasma-workspace-x11 usbguard rpmfusion-free-release rpmfusion-nonfree-release virt-manager xbindkeys xdotool xinput
 
-rpm-ostree uninstall noopenh264
-
 # --add-repo=https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo \
 rpm-ostree install --idempotent igt-gpu-tools intel-media-driver
 
