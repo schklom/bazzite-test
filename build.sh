@@ -13,23 +13,20 @@ RELEASE="$(rpm -E %fedora)"
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # this installs a package from fedora repos
-echo "trying single backslash"
 rpm-ostree \
     override remove noopenh264 \
     --install mozilla-openh264
 
-echo "trying double backslash"
-rpm-ostree \\
-    override remove noopenh264 \\
-    --install mozilla-openh264
-
-rpm-ostree install -y --idempotent distrobox htop ffmpeg kdepim-addons kde-connect kdeconnectd kontact libvirt mono-complete podman-compose plasma-workspace-x11 usbguard rpmfusion-free-release rpmfusion-nonfree-release virt-manager xbindkeys xdotool xinput
+rpm-ostree \
+    install -y --idempotent \
+    distrobox \
+    htop ffmpeg kdepim-addons kde-connect kdeconnectd kontact libvirt mono-complete podman-compose plasma-workspace-x11 usbguard rpmfusion-free-release rpmfusion-nonfree-release virt-manager xbindkeys xdotool xinput
 
 # --add-repo=https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo \
 rpm-ostree install --idempotent igt-gpu-tools intel-media-driver
 
 flatpak install -y \
-    \ # Browsers
+    # Browsers
     org.mozilla.firefox \
     io.github.ungoogled_software.ungoogled_chromium \
     org.torproject.torbrowser-launcher \
